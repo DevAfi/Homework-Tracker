@@ -1,4 +1,4 @@
-import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -12,15 +12,22 @@ import {
 import Homework from "./ReusableComponents/Homework";
 
 export default function App() {
+  const [hw, setAssignment] = useState();
+  const [hwItems, setItems] = useState([]);
+
+  const handleAssignment = () => {
+    setItems([...hwItems, hw]);
+    setAssignment(null);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.taskContainer}>
         <Text style={styles.taskTitle}>Upcoming assignments</Text>
 
         <View style={styles.tasks}>
-          <Homework text="Assignment 1" />
-          <Homework text="Assignment 2" />
-          <Homework text="Assignment 3" />
+          {hwItems.map((item) => {
+            return <Homework text={item} />;
+          })}
         </View>
       </View>
 
@@ -33,9 +40,14 @@ export default function App() {
         <TextInput
           style={styles.assignmentInput}
           placeholder="Write an assignment"
+          value={hw}
+          onChangeText={(text) => setAssignment(text)}
         ></TextInput>
 
-        <TouchableOpacity style={styles.addContainer}>
+        <TouchableOpacity
+          style={styles.addContainer}
+          onPress={() => handleAssignment()}
+        >
           <Text style={styles.PLUSSIGN}>+</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
