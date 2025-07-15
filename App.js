@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import Homework from './ReusableComponents/Homework';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import Homework from "./ReusableComponents/Homework";
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#eaecc6',
+    backgroundColor: "#eaecc6",
   },
   taskContainer: {
     paddingTop: 40,
@@ -30,11 +30,10 @@ const styles = StyleSheet.create({
   },
   taskTitle: {
     fontSize: 30,
-    fontWeight: 'bold',
-    color: '#2bc0e4',
-    
+    fontWeight: "bold",
+    color: "#2d3480",
   },
-  tasks
-  : {
+  tasks: {
+    marginTop: 20,
   },
 });

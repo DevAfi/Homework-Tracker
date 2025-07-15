@@ -37,11 +37,23 @@ const styles = StyleSheet.create({
   square: {
     width: 24,
     height: 24,
-    backgroundColor: "#2bc0e4",
-    opacity: 0.5,
+    borderRadius: 5,
+    marginRight: 12,
+    backgroundColor: "#2d3480",
+    opacity: 0.6,
   },
-  AssignmentName: {},
-  Check: {},
+  AssignmentName: {
+    maxWidth: "80%",
+    color: "#2d3480",
+    fontSize: 17,
+  },
+  Check: {
+    width: 16,
+    height: 16,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#2d3480",
+  },
 });
 
 export default Homework;
