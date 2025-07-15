@@ -19,14 +19,30 @@ export default function App() {
     setItems([...hwItems, hw]);
     setAssignment(null);
   };
+
+  /* Deleting an item */
+
+  const deleteAssignment = (index) => {
+    let assignmentsCopy = [...hwItems];
+    assignmentsCopy.splice(index, 1);
+    setItems(assignmentsCopy);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.taskContainer}>
         <Text style={styles.taskTitle}>Upcoming assignments</Text>
 
         <View style={styles.tasks}>
-          {hwItems.map((item) => {
-            return <Homework text={item} />;
+          {hwItems.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                onPress={() => deleteAssignment(index)}
+              >
+                <Homework text={item} key={index} />
+              </TouchableOpacity>
+            );
           })}
         </View>
       </View>
